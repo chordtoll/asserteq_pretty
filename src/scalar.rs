@@ -1,0 +1,29 @@
+use crate::PrettyDiff;
+
+trait Scalar: std::fmt::Debug + PartialEq {}
+
+impl Scalar for u8 {}
+impl Scalar for u16 {}
+impl Scalar for u32 {}
+impl Scalar for u64 {}
+impl Scalar for u128 {}
+impl Scalar for usize {}
+impl Scalar for i8 {}
+impl Scalar for i16 {}
+impl Scalar for i32 {}
+impl Scalar for i64 {}
+impl Scalar for i128 {}
+impl Scalar for isize {}
+
+impl Scalar for f32 {}
+impl Scalar for f64 {}
+
+impl Scalar for bool {}
+
+impl Scalar for char {}
+
+impl<T:Scalar> PrettyDiff for T {
+    fn pretty_diff(left: &Self, right: &Self) -> String {
+        format!("`{:?}` != `{:?}`",left,right)
+    }
+}
