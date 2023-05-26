@@ -45,3 +45,4 @@ pub trait PrettyDiff: Debug + PartialEq {
 
 pub mod scalar;
 pub mod tuple;
+pub mod option;
