@@ -59,14 +59,14 @@ impl<'a> NamedStruct<'a> {
                 quote! {
                     if a.#f != b.#f {
                         res += &format!("\n\tField `{}` differs: ",stringify!(#f));
-                        res += &PrettyDiff::pretty_diff(&a.#f,&b.#f)
+                        res += &asserteq_pretty::PrettyDiff::pretty_diff(&a.#f,&b.#f)
                     }
                 }
             })
             .collect();
 
         quote!(
-            impl #impl_generics PrettyDiff for #struct_name #struct_generics
+            impl #impl_generics asserteq_pretty::PrettyDiff for #struct_name #struct_generics
                 #where_clause
             {
                 fn pretty_diff(a: &#struct_name #struct_generics, b: &#struct_name #struct_generics) -> String {

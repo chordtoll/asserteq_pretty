@@ -1,5 +1,4 @@
 use asserteq_pretty::assert_eq_pretty;
-use asserteq_pretty::PrettyDiff;
 use asserteq_pretty_macros::PrettyDiff;
 
 #[derive(PrettyDiff, PartialEq, Debug)]

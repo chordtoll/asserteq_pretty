@@ -1,6 +1,6 @@
 [package]
 name = "asserteq_pretty"
-version = "0.0.2"
+version = "0.0.3"
 edition = "2018"
 license = "MIT"
 repository = "https://github.com/chordtoll/asserteq_pretty"
@@ -11,4 +11,4 @@ msrv = "1.32.0"
 
 [dependencies]
 seq-macro = "0.3.3"
-asserteq_pretty_macros = {version="0.0.2", path="../asserteq_pretty_macros"}
+asserteq_pretty_macros = {version="0.0.3", path="../asserteq_pretty_macros"}
