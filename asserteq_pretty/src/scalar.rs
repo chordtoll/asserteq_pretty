@@ -1,3 +1,5 @@
+use std::time::SystemTime;
+
 use crate::PrettyDiff;
 
 trait Scalar: std::fmt::Debug + PartialEq {}
@@ -21,6 +23,8 @@ impl Scalar for f64 {}
 impl Scalar for bool {}
 
 impl Scalar for char {}
+
+impl Scalar for SystemTime {}
 
 impl<T: Scalar> PrettyDiff for T {
     fn pretty_diff(left: &Self, right: &Self) -> String {
