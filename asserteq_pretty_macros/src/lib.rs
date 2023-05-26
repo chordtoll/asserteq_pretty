@@ -1,7 +1,8 @@
-use std::str::FromStr;
+use std::{str::FromStr, convert::TryFrom};
 
 use proc_macro::{Span, TokenStream, TokenTree};
 use quote::{quote, quote_spanned};
+use syn::{parse_macro_input, DeriveInput};
 
 extern crate proc_macro;
 
@@ -68,3 +69,17 @@ fn err(span: Span, msg: impl Into<String>) -> TokenStream {
     })
     .into()
 }
+
+#[proc_macro_derive(PrettyDiff)]
+pub fn derive_prettydiff(input: TokenStream) -> TokenStream {
+    let ast = parse_macro_input!(input as DeriveInput);
+
+    prettydiff::NamedStruct::try_from(&ast)
+        .map(|ns| ns.emit())
+        .unwrap_or_else(|err| err.to_compile_error())
+        .into()
+}
+
+mod extract;
+mod faultmsg;
+mod prettydiff;
