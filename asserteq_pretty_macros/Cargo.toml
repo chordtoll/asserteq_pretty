@@ -1,0 +1,14 @@
+[package]
+name = "asserteq_pretty_macros"
+version = "0.0.1"
+edition = "2018"
+license = "MIT"
+repository = "https://github.com/chordtoll/asserteq_pretty"
+description = "Proc macros for asserteq_pretty"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+proc-macro2 = "1.0.59"
+quote = "1.0.27"

@@ -1,13 +1,6 @@
-[package]
-name = "asserteq_pretty"
-version = "0.0.0"
-edition = "2018"
-license = "MIT"
-repository = "https://github.com/chordtoll/asserteq_pretty"
-description = "An assert_eq macro that prints more helpful diffs on mismatch"
+[workspace]
 
-[package.metadata]
-msrv = "1.32.0"
-
-[dependencies]
-
+members = [
+    "asserteq_pretty",
+    "asserteq_pretty_macros",
+]

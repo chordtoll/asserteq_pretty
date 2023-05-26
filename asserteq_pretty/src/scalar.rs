@@ -22,8 +22,8 @@ impl Scalar for bool {}
 
 impl Scalar for char {}
 
-impl<T:Scalar> PrettyDiff for T {
+impl<T: Scalar> PrettyDiff for T {
     fn pretty_diff(left: &Self, right: &Self) -> String {
-        format!("`{:?}` != `{:?}`",left,right)
+        format!("`{:?}` != `{:?}`", left, right)
     }
 }
